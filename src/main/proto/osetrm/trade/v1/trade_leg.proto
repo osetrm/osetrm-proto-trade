@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.osetrm.proto.trade.v1";
+
+import "osetrm/common/v1/decimal.proto";
+import "osetrm/common/v1/currency.proto";
+import "osetrm/common/v1/price.proto";
+import "osetrm/common/v1/unit_of_measure.proto";
+import "osetrm/common/v1/frequency.proto";
+import "osetrm/trade/v1/unique_transaction_identifier.proto";
+import "osetrm/legalentity/v1/legal_entity_identifier.proto";
+import "osetrm/instrument/v1/instrument.proto";
+
+package osetrm.trade.v1;
+
+message TradeLeg {
+  osetrm.legalentity.v1.LegalEntityIdentifier payer_identifier = 1;
+  osetrm.legalentity.v1.LegalEntityIdentifier receiver_identifier = 2;
+  osetrm.instrument.v1.Instrument instrument = 3;
+}

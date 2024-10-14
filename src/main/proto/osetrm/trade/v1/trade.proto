@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.osetrm.proto.trade.v1";
+
+import "osetrm/common/v1/date.proto";
+import "osetrm/trade/v1/unique_transaction_identifier.proto";
+import "osetrm/trade/v1/trade_leg.proto";
+
+package osetrm.trade.v1;
+
+message Trade {
+  UniqueTransactionIdentifier unique_transaction_identifier = 1;
+  osetrm.common.v1.Date effective_date = 2;
+  osetrm.common.v1.Date expiration_date = 3;
+  osetrm.common.v1.Date early_termination_date = 4;
+  osetrm.common.v1.Timestamp execution_timestamp = 5;
+  osetrm.common.v1.Timestamp reporting_timestamp = 6;
+  osetrm.common.v1.Date final_contractual_settlement_date = 7;
+  repeated TradeLeg trade_legs = 10;
+}
